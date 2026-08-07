@@ -46,6 +46,16 @@ Note the recursion hazard: when *you* open a PR in another org repo, this file
 is the template you're filling in. When you edit it here, you're editing the
 form, not filling it out.
 
+Inheritance is server-side, so this file exists on disk **only in this repo**.
+Searching another org repo's checkout for `PULL_REQUEST_TEMPLATE.md` correctly
+finds nothing — that is not a missing template. Nor does GitHub apply it to a
+PR created through the API; only a human opening a PR in the browser gets the
+prefill. To follow the template from anywhere else, fetch it:
+
+```
+curl -s https://raw.githubusercontent.com/amarnaorg/.github/main/PULL_REQUEST_TEMPLATE.md
+```
+
 ## Editing the org profile
 
 `profile/README.md` is public-facing marketing copy with a deliberate voice —
